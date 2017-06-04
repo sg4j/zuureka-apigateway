@@ -1,0 +1,17 @@
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    instanceId: ${spring.application.name}:${random.value}
+  client:
+    serviceUrl:
+      defaultZone: ${eureka-url:http://localhost:8761/eureka/}
+      
+logging:
+  level:
+    root: WARN
+    org.springframework.web: DEBUG
+  path: logs/${spring.application.name}_${server.port}
+  
+management.security.enabled: false
