@@ -1,4 +1,4 @@
-package org.apache.model;
+package org.apache.restservicedemo.model;
 
 public class Product {
 
