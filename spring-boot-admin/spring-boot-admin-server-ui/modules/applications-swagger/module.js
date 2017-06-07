@@ -28,8 +28,8 @@ module.controller('swaggerCtrl', require('./controllers/swaggerCtrl.js'));
 
 module.config(function ($stateProvider) {
   $stateProvider.state('applications.swagger', {
-    url: '/swagger',
-    templateUrl: 'applications-swagger/views/swagger.html',
+    url: '/swagger-ui',
+    templateUrl: 'productservice/swagger-ui.html',
     controller: 'swaggerCtrl'
   });
 });
@@ -40,13 +40,8 @@ module.run(function (ApplicationViews, $sce, $http) {
     title: $sce.trustAsHtml('<i class="fa fa-file-text-o fa-fw"></i>Swagger'),
     state: 'applications.swagger',
     show: function (application) {
-    	return true;/*
-      return $http.head('api/applications/' + application.id + '/swagger').then(function () {
-        return true;
-      }).catch(function () {
-        return false;
-      });
-    */}
+    	return true;
+    	}
   });
 });
 
