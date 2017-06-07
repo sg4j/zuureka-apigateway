@@ -16,7 +16,7 @@ spring:
   boot: 
    admin: 
     routes: 
-     endpoints: env,metrics,trace,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream
+     endpoints: env,metrics,trace,jolokia,info,configprops,logfile,refresh,flyway,liquibase,auditevents,hystrix.stream
     
     
 eureka:
