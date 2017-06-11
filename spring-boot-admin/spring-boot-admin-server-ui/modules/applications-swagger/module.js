@@ -20,17 +20,12 @@ var angular = require('angular');
 var module = angular.module('sba-applications-swagger', [ 'sba-applications']);
 global.sbaModules.push(module.name);
 
-require('./css/module.css');
-
-//module.component('swaggerComp', require('./components/swaggerComp.js'));
-//module.service('swaggerService', require('./services/swaggerService.js'));
-module.controller('swaggerCtrl', require('./controllers/swaggerCtrl.js'));
+//require('./css/module.css');
 
 module.config(function($stateProvider) {
 	$stateProvider.state('applications.swagger', {
 		url : '/swagger-ui',
-		templateUrl : 'applications-swagger/swagger-static/index.html',
-		controller : 'swaggerCtrl'
+		templateUrl : 'applications-swagger/views/index.html',
 	});
 });
 
