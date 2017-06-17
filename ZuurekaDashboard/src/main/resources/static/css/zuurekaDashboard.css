@@ -1,0 +1,35 @@
+#footer {
+	background-color: #fff;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 30px;
+	margin-bottom: 0px;
+	text-align: center;
+	color: #312A25;
+	padding-top: 5px;
+}
+
+#header {
+	background-color: #312A25;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 50px;
+	margin-bottom: 0px;
+	text-align: left;
+	color: white;
+	padding-left: 10px;
+}
+
+#main-logo {
+	height: 65px;
+	font-size: 18px;
+	line-height: 60px;
+	padding-left: 5px;
+}
+
+span.glyphicon-menu-hamburger {
+    font-size: 1.2em;
+}
