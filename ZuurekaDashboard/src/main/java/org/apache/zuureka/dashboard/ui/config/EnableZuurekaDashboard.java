@@ -1,4 +1,4 @@
-package com.zuureka.ui.config;
+package org.apache.zuureka.dashboard.ui.config;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

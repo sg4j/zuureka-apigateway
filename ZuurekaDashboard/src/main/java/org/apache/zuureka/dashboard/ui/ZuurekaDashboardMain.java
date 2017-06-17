@@ -1,9 +1,8 @@
-package com.zuureka.ui;
+package org.apache.zuureka.dashboard.ui;
 
+import org.apache.zuureka.dashboard.ui.config.EnableZuurekaDashboard;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.zuureka.ui.config.EnableZuurekaDashboard;
 
 @SpringBootApplication
 @EnableZuurekaDashboard

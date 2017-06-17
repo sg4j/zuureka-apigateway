@@ -1,9 +1,8 @@
-package com.zuureka.ui.config;
+package org.apache.zuureka.dashboard.ui.config;
 
+import org.apache.zuureka.dashboard.ui.ZuurekaDashboard;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import com.zuureka.ui.ZuurekaDashboard;
 
 @Configuration
 public class ZuurekaDashboardConfiguration {

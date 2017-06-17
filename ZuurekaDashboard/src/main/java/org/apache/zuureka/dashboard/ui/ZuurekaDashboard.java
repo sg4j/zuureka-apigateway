@@ -1,4 +1,4 @@
-package com.zuureka.ui;
+package org.apache.zuureka.dashboard.ui;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;

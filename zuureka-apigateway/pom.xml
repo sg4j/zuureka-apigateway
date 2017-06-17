@@ -53,30 +53,10 @@
 			<artifactId>spring-cloud-starter-zuul</artifactId>
 		</dependency>
 		<dependency>
-		    <groupId>de.codecentric</groupId>
-		    <artifactId>spring-boot-admin-server</artifactId>
-		    <version>1.5.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>de.codecentric</groupId>
-		    <artifactId>spring-boot-admin-server-ui</artifactId>
-		    <version>1.6.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>de.codecentric</groupId>
-		    <artifactId>spring-boot-admin-server-ui-hystrix</artifactId>
-		    <version>1.5.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>de.codecentric</groupId>
-		    <artifactId>spring-boot-admin-server-ui-turbine</artifactId>
-		    <version>1.5.0</version>
-		</dependency>
-		<dependency>
-		    <groupId>de.codecentric</groupId>
-		    <artifactId>spring-boot-admin-server-ui-activiti</artifactId>
-		    <version>1.5.0</version>
-		</dependency>				
+			<groupId>org.apache</groupId>
+			<artifactId>zuureka-dashboard</artifactId>
+			<version>1.0</version>
+		</dependency>		
 	</dependencies>
 
 	<dependencyManagement>
