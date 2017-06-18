@@ -21,7 +21,8 @@ public class RegisteredServicesController {
 		 * Returns a JSON with list of service names
 		 * @return
 		 */
-		@RequestMapping("/")
+		@RequestMapping(value="/", produces = "application/json")
+		
 		public @ResponseBody List<Application> getListOfRegisteredServices() {
 			System.out.println("Came here in getListOfRegisteredServices");
 			return eurekaClient.getApplications().getRegisteredApplications();
