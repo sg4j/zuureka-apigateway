@@ -1,6 +1,5 @@
 server:
   port: ${port:8761}
-  contextPath : /dashboard
 
 zuul:
   ribbon: 
