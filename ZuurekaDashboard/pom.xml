@@ -8,16 +8,18 @@
 	<packaging>jar</packaging>
 	<name>Zuureka Dashboard</name>
 	<description>Zuureka Dashboard</description>
-	<version>1.0</version>
+	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.2.RELEASE</version>
+		<version>1.5.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
 	</properties>
 
 	<dependencies>
@@ -27,7 +29,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+				
 		<!-- Web with Tomcat + Embed -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -64,6 +71,19 @@
 		</dependency>
 
 	</dependencies>
+	
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+		
 	<build>
 		<plugins>
 			<!-- Package as an executable jar/war -->

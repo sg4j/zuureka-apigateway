@@ -1,2 +1,14 @@
 spring.mvc.view.prefix: /
 spring.mvc.view.suffix: .html
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 2
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    instanceId: ${spring.application.name}:${random.value}
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
