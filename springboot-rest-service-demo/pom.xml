@@ -69,7 +69,7 @@
 		<dependency>
 		    <groupId>org.springframework.hateoas</groupId>
 		    <artifactId>spring-hateoas</artifactId>
-		    </dependency>			
+	    </dependency>			
 	</dependencies>
 
 	<dependencyManagement>

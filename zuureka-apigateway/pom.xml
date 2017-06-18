@@ -56,7 +56,11 @@
 			<groupId>org.apache.zuureka</groupId>
 			<artifactId>zuureka-dashboard</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>		
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.hateoas</groupId>
+		    <artifactId>spring-hateoas</artifactId>
+	    </dependency>				
 	</dependencies>
 
 	<dependencyManagement>

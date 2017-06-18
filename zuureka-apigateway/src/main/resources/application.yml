@@ -35,6 +35,10 @@ eureka:
 
 management.security.enabled: false
 
+endpoints: 
+ hypermedia: 
+  enabled: true
+  
 logging:
   level:
     root: WARN
