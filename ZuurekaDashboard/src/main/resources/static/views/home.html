@@ -1,0 +1,16 @@
+<div>
+	<h1>Home</h1>
+	
+	<div class="card service-card" ng-repeat="service in servicesList">
+		<div class="card-block">
+			<div class="service-card-header">{{service.name}}</div>
+			<div style="padding: 6px;">
+				<h4 class="card-title">{{service.name}}</h4>
+				<p class="card-text">
+					Instance Running : {{service.instance.length}} </br>
+				</p>
+				<a href="#" class="btn btn-primary ">Details</a>
+			</div>
+		</div>
+	</div>
+</div>

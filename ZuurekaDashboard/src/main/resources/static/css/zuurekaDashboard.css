@@ -33,3 +33,25 @@
 span.glyphicon-menu-hamburger {
     font-size: 1.2em;
 }
+
+.service-card-header
+{
+	background-color: #5eaeff;
+	height: 100px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	text-align: center;
+	line-height: 100px;
+	color: white;
+}
+
+.service-card
+{
+	border-radius: 5px;
+	width: 25rem;
+	border-color : #ceccce;
+	border-style: solid;
+	border-width: 1px;
+	background-color: white;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
