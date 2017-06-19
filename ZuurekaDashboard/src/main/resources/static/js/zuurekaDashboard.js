@@ -9,6 +9,7 @@ app.controller('zuurekaDashboardAppController', function($scope, $location,
 	$scope.currentService = '';
 	$scope.currentServiceInstance = '';
 	$scope.currentServiceDetailTab = 'Overview';
+	$scope.currentServiceInstanceEndPoints = '';
 
 	if ($location.port() == '8761') {
 		$scope.zuurekaGatewayPath = '';
@@ -42,6 +43,15 @@ app.controller('zuurekaDashboardAppController', function($scope, $location,
 	$scope.showServiceDetails = function(serviceSelected, instanceSelected) {
 		$scope.currentService = serviceSelected;
 		$scope.currentServiceInstance = instanceSelected;
+
+		window.alert($scope.currentServiceInstance.homePageUrl);
+		$http({method: 'GET', url: $scope.currentServiceInstance.homePageUrl + 'info', headers: { 'Accept': 'application/json' }}).then(
+			function actuatorCallSuccess(response) {
+				window.alert("Came here");
+				$scope.currentServiceInstanceEndPoints = response.data;
+				window.alert("home page URL is"+$scope.currentServiceInstanceEndPoints);
+			});
+		
 		$scope.showPage(1);
 	}
 	

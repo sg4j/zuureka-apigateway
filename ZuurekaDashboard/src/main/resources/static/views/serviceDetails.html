@@ -5,7 +5,7 @@
 
 	<ul class="nav nav-tabs nav-justified">
 		<li role="presentation" ng-class="{'active':isServiceDetailsTabSelected('Overview')}" ng-click="showServiceDetailsTab('Overview')""><a href="#">Overview</a></li>
-		<li role="presentation" ng-repeat="(key, value) in currentServiceInstance" ng-if="key.indexOf('Url') != -1" ng-class="{'active':isServiceDetailsTabSelected(key)}" ng-click="showServiceDetailsTab(key)"><a href="#">{{key}}</a></li>
+		<li role="presentation" ng-repeat="(key, value) in currentServiceInstanceEndPoints" ng-class="{'active':isServiceDetailsTabSelected(key)}" ng-click="showServiceDetailsTab(key)"><a href="#">{{key}}</a></li>
 	</ul>
 	<div class="serviceDetailsDiv" ng-show="isServiceDetailsTabSelected('Overview')" class="ng-hide">Overview</div>
 	<div class="serviceDetailsDiv" ng-repeat="(key, value) in currentServiceInstance" ng-if="key.indexOf('Url') != -1" ng-show="isServiceDetailsTabSelected(key)" class="ng-hide">{{value}}</div>

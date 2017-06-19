@@ -12,7 +12,10 @@ zuul:
 
 spring:
   application:
-    name: zuureka-api-gateway 
+    name: zuureka-api-gateway
+  jackson: 
+   serialization: 
+    INDENT_OUTPUT: true
 
 #endpoints.enabled: false
 endpoints.hypermedia.enabled: true

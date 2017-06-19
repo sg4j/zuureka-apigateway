@@ -53,15 +53,15 @@
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li><a href="#"><i class="glyphicon glyphicon-home"></i><span style="margin-left: 10px;" ng-click="showPage(0)">Home</span></a></li>
-				<li><a href="#"><i class="glyphicon glyphicon-list-alt"></i><span style="margin-left: 10px;">Services</span></a>
+				<li><a href="#"><i class="glyphicon glyphicon-home"></i><span style="margin-left: 7px;" ng-click="showPage(0)">Home</span></a></li>
+				<li><a href="#"><i class="glyphicon glyphicon-list-alt"></i><span style="margin-left: 7px;">Services</span></a>
 					<ul>
-						<li ng-repeat="service in servicesList" title="{{service.name}}"><a href="#"><font size="2rem">- {{service.name.substring(0, 14);}}</font></a>
+						<li ng-repeat="service in servicesList" title="{{service.name}}"><a href="#"><font size="1rem">- {{service.name.substring(0, 14);}}</font></a>
 							<ul>
 								<li ng-repeat="instance in service.instance" title="{{instance.ipAddr}}" ng-click="showServiceDetails(service,instance)"><a href="#"><font size="1rem">- {{instance.ipAddr.substring(0, 14);}}</font></a>
 							</ul></li>
 					</ul></li>
-				<li><a href="#"><i class="glyphicon glyphicon-info-sign"></i><span style="margin-left: 10px;">About</span></a></li>
+				<li><a href="#"><i class="glyphicon glyphicon-info-sign"></i><span style="margin-left: 5px;">About</span></a></li>
 			</ul>
 		</div>
 		<!-- /#sidebar-wrapper -->
