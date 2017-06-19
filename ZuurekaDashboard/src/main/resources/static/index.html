@@ -40,6 +40,12 @@
 
 	<div id="header">
 		<span href="#menu-toggle" class="glyphicon glyphicon-menu-hamburger" id="menu-toggle"></span> <span id="main-logo" class="sidebar-brand">Zuureka Dashboard</span>
+		<form class="navbar-form navbar-right" role="search" style="margin-right: 1px;">
+			<div class="form-group">
+				<input type="text" size="50" class="form-control" placeholder="Search service">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
 	</div>
 
 	<div id="wrapper">
@@ -47,12 +53,14 @@
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li><a href="#"><i class="glyphicon glyphicon-home"></i><span style="margin-left: 10px;">Home</span></a></li>
+				<li><a href="#"><i class="glyphicon glyphicon-home"></i><span style="margin-left: 10px;" ng-click="showPage(0)">Home</span></a></li>
 				<li><a href="#"><i class="glyphicon glyphicon-list-alt"></i><span style="margin-left: 10px;">Services</span></a>
 					<ul>
-						<li ng-repeat="service in servicesList" title= "{{service.name}}"><a href="#">- {{service.name.substring(0, 14);}}</li>
-					</ul>
-				</li>
+						<li ng-repeat="service in servicesList" title="{{service.name}}"><a href="#"><font size="2rem">- {{service.name.substring(0, 14);}}</font></a>
+							<ul>
+								<li ng-repeat="instance in service.instance" title="{{instance.ipAddr}}" ng-click="showServiceDetails(service,instance)"><a href="#"><font size="1rem">- {{instance.ipAddr.substring(0, 14);}}</font></a>
+							</ul></li>
+					</ul></li>
 				<li><a href="#"><i class="glyphicon glyphicon-info-sign"></i><span style="margin-left: 10px;">About</span></a></li>
 			</ul>
 		</div>
@@ -60,7 +68,8 @@
 		<!-- Page Content -->
 		<div id="page-content-wrapper">
 			<div class="container-fluid">
-			<div ng-include="'views/home.html'"></div>
+				<div ng-include="'views/home.html'" ng-show="homePageVisibility" class="ng-hide"></div>
+				<div ng-include="'views/serviceDetails.html'" ng-show="serviceDetailsVisibility" class="ng-hide"></div>
 			</div>
 		</div>
 
