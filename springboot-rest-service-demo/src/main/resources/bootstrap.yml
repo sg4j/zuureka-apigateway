@@ -4,3 +4,6 @@ server:
 spring:
   application:
     name: productservice
+    
+endpoints.cors.allowed-origins: http://localhost:8761
+endpoints.cors.allowed-methods: GET

@@ -40,20 +40,18 @@ app.controller('zuurekaDashboardAppController', function($scope, $location,
 		}
 	}
 
-	function listActuatorTabs(){
-		window.alert($scope.currentServiceInstance.homePageUrl);
-		$http.get($scope.currentServiceInstance.homePageUrl + 'actuator').then(
+	$scope.listActuatorTabs = function(){
+		var actuatorUrl = $scope.currentServiceInstance.homePageUrl + 'actuator';
+		$http.get(actuatorUrl).then(
 				function actuatorCallSuccess(response) {
-					window.alert("Came here");
 					$scope.currentServiceInstanceEndPoints = response.data;
-					window.alert("home page URL is"+$scope.currentServiceInstanceEndPoints);
 		});
 	}
 	
 	$scope.showServiceDetails = function(serviceSelected, instanceSelected) {
 		$scope.currentService = serviceSelected;
 		$scope.currentServiceInstance = instanceSelected;
-		listActuatorTabs();
+		$scope.listActuatorTabs();
 		$scope.showPage(1);
 	}
 	

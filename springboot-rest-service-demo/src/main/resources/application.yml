@@ -30,6 +30,8 @@ endpoints.restart.enabled: false
 endpoints.routes.enabled: false
 endpoints.autoconfig.enabled: false
 endpoints.features.enabled: false
+endpoints.configprops.enabled: false
+endpoints.self.enabled: false
      
 logging:
   level:
