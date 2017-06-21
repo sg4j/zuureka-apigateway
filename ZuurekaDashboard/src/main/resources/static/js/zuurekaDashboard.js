@@ -1,33 +1,40 @@
 var app = angular.module('zuurekaDashboardApp', []);
 
-app.controller('zuurekaDashboardAppController', function($scope, $location,
-		$http, $anchorScroll) {
+app.controller('zuurekaDashboardAppController', function ($scope, $location,
+	$http, $anchorScroll) {
 
-	$scope.zuurekaGatewayPath = 'http://localhost:8761';
+	initializeWebSocket();
+	
+	$scope.zuurekaGatewayPath = '';
 	$scope.homePageVisibility = true;
 	$scope.serviceDetailsVisibility = false;
+
 	$scope.currentService = '';
 	$scope.currentServiceInstance = '';
 	$scope.currentServiceDetailTab = 'Overview';
+
 	$scope.currentServiceInstanceEndPoints = '';
 
-	if ($location.port() == '8761') {
-		$scope.zuurekaGatewayPath = '';
+	$scope.registeredServicesMap = {};
+	
+	$scope.messageFromWS = function(data)
+	{
+		console.log("Message received :" + data);
 	}
 
 	$http.get($scope.zuurekaGatewayPath + '/zuureka/services/').then(
-			function(response) {
-				$scope.servicesList = response.data;
-			});
+		function (response) {
+			$scope.servicesList = response.data;
+		});
 
 	$scope.$watch('serviceDetailsVisibility',
-			function() {
-				if (!$scope.serviceDetailsVisibility) {
-					return;
-				}
-			});
-	
-	$scope.showPage = function(pageNumber) {
+		function () {
+			if (!$scope.serviceDetailsVisibility) {
+				return;
+			}
+		});
+
+	$scope.showPage = function (pageNumber) {
 		$scope.homePageVisibility = false;
 		$scope.serviceDetailsVisibility = false;
 
@@ -40,31 +47,30 @@ app.controller('zuurekaDashboardAppController', function($scope, $location,
 		}
 	}
 
-	$scope.listActuatorTabs = function(){
+	$scope.listActuatorTabs = function () {
 		var actuatorUrl = $scope.currentServiceInstance.homePageUrl + 'actuator';
 		$http.get(actuatorUrl).then(
-				function actuatorCallSuccess(response) {
-					$scope.currentServiceInstanceEndPoints = response.data;
-		});
+			function actuatorCallSuccess(response) {
+				$scope.currentServiceInstanceEndPoints = response.data;
+			});
 	}
-	
-	$scope.showServiceDetails = function(serviceSelected, instanceSelected) {
+
+	$scope.showServiceDetails = function (serviceSelected, instanceSelected) {
 		$scope.currentService = serviceSelected;
 		$scope.currentServiceInstance = instanceSelected;
 		$scope.listActuatorTabs();
 		$scope.showPage(1);
 	}
-	
-	$scope.isServiceDetailsTabSelected = function(currentServiceDetailsTabSelected){
-		if($scope.currentServiceDetailTab == currentServiceDetailsTabSelected) {
+
+	$scope.isServiceDetailsTabSelected = function (currentServiceDetailsTabSelected) {
+		if ($scope.currentServiceDetailTab == currentServiceDetailsTabSelected) {
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
-	$scope.showServiceDetailsTab = function(currentServiceDetailsTabSelected)
-	{
+
+	$scope.showServiceDetailsTab = function (currentServiceDetailsTabSelected) {
 		$scope.currentServiceDetailTab = currentServiceDetailsTabSelected;
 	}
 
