@@ -5,10 +5,10 @@ var socket = {
 };
 
 service.SOCKET_URL = "/gs-guide-websocket";
-service.CHAT_TOPIC = "/topic/eurekaAppChangeEvent";
+service.TOPIC = "/topic/eurekaAppChangeEvent";
 
 function startListener() {
-  socket.stomp.subscribe(service.CHAT_TOPIC, function (data) {
+  socket.stomp.subscribe(service.TOPIC, function (data) {
 	  angular.element($('#zuurekaDashboard')).scope().messageFromWS(angular.fromJson(data.body));
   });
 };
