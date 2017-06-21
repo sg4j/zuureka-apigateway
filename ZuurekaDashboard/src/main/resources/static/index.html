@@ -58,7 +58,7 @@
 					<ul>
 						<li ng-repeat="service in servicesList" title="{{service.name}}"><a href="#"><font size="1rem">- {{service.name.substring(0, 14);}}</font></a>
 							<ul>
-								<li ng-repeat="instance in service.instance" title="{{instance.ipAddr}}" ng-click="showServiceDetails(service,instance)"><a href="#"><font size="1rem">- {{instance.ipAddr.substring(0, 14);}}</font></a>
+								<li ng-repeat="instance in service.instance" title="{{instance.ipAddr}}" ng-click="showServiceDetails(service,instance)"><a href="#"><font size="1rem">- {{instance.ipAddr.substring(0, 14);}}:{{instance.port;}}</font></a>
 							</ul></li>
 					</ul></li>
 				<li><a href="#"><i class="glyphicon glyphicon-info-sign"></i><span style="margin-left: 5px;">About</span></a></li>

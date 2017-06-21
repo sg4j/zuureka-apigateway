@@ -1,0 +1,33 @@
+server:
+  port: ${port:8761}
+
+spring:
+  application:
+    name: zuureka-api-gateway
+  jackson: 
+   serialization: 
+    INDENT_OUTPUT: true
+    
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+    instanceId: ${spring.application.name}:${random.value}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka/
+  dashboard: 
+    path: home
+
+zuul:
+  ribbon: 
+   ServerListRefreshInterval: 5  
+   eureka: 
+    enabled: true 
+  routes: 
+   discovery: 
+    path: /discovery/**
+    url: http://localhost:${server.port}
