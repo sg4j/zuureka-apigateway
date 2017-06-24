@@ -4,7 +4,7 @@ app.controller('zuurekaDashboardAppController', function ($scope, $location,
 	$http, $anchorScroll) {
 
 	initializeWebSocket();
-	
+
 	$scope.zuurekaGatewayPath = '';
 	$scope.homePageVisibility = true;
 	$scope.serviceDetailsVisibility = false;
@@ -15,16 +15,20 @@ app.controller('zuurekaDashboardAppController', function ($scope, $location,
 
 	$scope.currentServiceInstanceEndPoints = '';
 
-	$scope.registeredServicesMap = {};
-	
-	$scope.messageFromWS = function(data)
-	{
-		console.log("Message received :" + data);
+	$scope.registeredServicesDetails = {};
+
+	$scope.messageFromWS = function (data) {
+		$scope.updateService(data.application);
 	}
 
-	$http.get($scope.zuurekaGatewayPath + '/zuureka/services/').then(
+	$http.get('/eureka/apps/').then(
 		function (response) {
-			$scope.servicesList = response.data;
+			var eurekaRegisteredServiceList = response.data.applications.application;
+			if (eurekaRegisteredServiceList && eurekaRegisteredServiceList.length > 0) {
+				for (var serviceListIndex = 0; serviceListIndex < eurekaRegisteredServiceList.length; serviceListIndex++) {
+					$scope.updateService(eurekaRegisteredServiceList[serviceListIndex].name);
+				}
+			}
 		});
 
 	$scope.$watch('serviceDetailsVisibility',
@@ -45,6 +49,18 @@ app.controller('zuurekaDashboardAppController', function ($scope, $location,
 		} else {
 			$scope.homePageVisibility = true;
 		}
+	}
+
+	$scope.updateService = function (serviceName) {
+		$http.get('/eureka/apps/' + serviceName).then(
+			function (response) {
+				var instances = response.data.application.instance;
+				if (instances && instances.length > 0) {
+					$scope.registeredServicesDetails[serviceName] = instances;
+				}
+			},function(data) {
+		       delete $scope.registeredServicesDetails[serviceName];
+		    });
 	}
 
 	$scope.listActuatorTabs = function () {
